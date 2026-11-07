@@ -280,7 +280,7 @@ export default function Home() {
       </section>
 
       <section className="work-section section-pad" id="work">
-        <AntigravityCanvas mode="white-rainbow" />
+        <AntigravityCanvas mode="white-rainbow" showConstellationNodes={true} />
         <div className="section-heading-row">
           <div><p className="eyebrow dark-eyebrow">Selected experiments / 2023—25</p><h2>Work<span className="outline">.</span></h2></div>
           <p className="section-note">A few things I&apos;ve designed, developed, and pushed until they felt right.</p>
@@ -309,7 +309,6 @@ export default function Home() {
                 key={project.title}
                 data-cursor={project.title === "Smart POS Portfolio Demo" ? "View Code ↗" : "Explore ✦"}
               >
-                <AntigravityCanvas mode="dark-gold" />
                 <div className={`project-visual art-${project.art || "default"}`}>
                   {project.image ? (
                     <img src={project.image} alt={`${project.title} project visual`} />
@@ -441,20 +440,20 @@ export default function Home() {
       </section>
 
       <section className="credentials-section section-pad" id="certifications">
-        <AntigravityCanvas mode="white-rainbow" />
+        <AntigravityCanvas mode="white-rainbow" showConstellationNodes={true} />
         <div className="section-heading-row"><div><p className="eyebrow dark-eyebrow">Learning never stops</p><h2>Proof of<br /><span className="outline">practice.</span></h2></div><p className="section-note">Courses and workshops that keep the toolkit growing.</p></div>
         <div className="credential-grid"><article className="credential-card credential-guvi"><span className="credential-corner">[•]</span><span className="credential-mark">GUVI / HCL</span><p className="credential-type">Certificate of completion</p><h3>Cloud AI in 90 Minutes Productivity Course</h3><p>Build Your AI Work Assistant</p><span className="credential-foot">Issued September 2026</span></article><article className="credential-card credential-be10x"><span className="credential-corner">[•]</span><span className="credential-mark">BE10X</span><p className="credential-type">Workshop</p><h3>AI Tools Workshop</h3><p>Practical exploration of modern AI tools and workflows.</p><span className="credential-foot">Learning in public</span></article></div>
       </section>
 
       <section className="about-section section-pad" id="about">
-        <AntigravityCanvas mode="white-rainbow" />
+        <AntigravityCanvas mode="white-rainbow" showConstellationNodes={true} />
         <div className="about-stamp"><span className="stamp-mark">[•]</span>A LITTLE<br />ABOUT ME<span className="stamp-coordinate">X 04 / Y 01</span></div>
         <div className="about-copy"><p className="eyebrow dark-eyebrow">Behind the screens</p><h2>Curious by default.<br /><em>Useful on purpose.</em></h2><p>I&apos;m a Computer Science &amp; Engineering student passionate about technology, software development, AI, and building real-world projects.</p><p>I enjoy exploring Android development, web development, Linux, and emerging technologies while continuously learning and improving my skills. I&apos;m focused on turning ideas into practical projects and building a strong future in the tech industry.</p><div className="about-facts"><div><strong>01</strong><span>first-year CSE</span></div><div><strong>IST</strong><span>India timezone</span></div><div><strong>∞</strong><span>innovation never ends</span></div></div></div>
         <DynamicInstagramQR />
       </section>
 
       <footer className="footer-section section-pad" id="contact">
-        <AntigravityCanvas mode="dark-gold" />
+        <AntigravityCanvas mode="dark-gold" showConstellationNodes={true} />
         <div className="footer-kicker">Innovation never ends</div><h2>Let&apos;s give it<br /><span>somewhere to go.</span></h2><a className="button button-light" href="mailto:sabareesh623@gmail.com">Email SABAREESH <ArrowUpRight size={19} /></a><div className="footer-bottom"><span>© 2026 — Built by SABAREESH.</span><div className="footer-links"><a href="https://github.com/saba1207B" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/sabareesh-m-3b488840b" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:sabareesh623@gmail.com">Email</a></div><span className="footer-code">// innovation never ends</span></div>
       </footer>
 
