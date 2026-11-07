@@ -5,60 +5,169 @@ import AntigravityCanvas from "@/components/AntigravityCanvas";
 import DevTerminal from "@/components/DevTerminal";
 import DynamicInstagramQR from "@/components/DynamicInstagramQR";
 
-const projects = [
+type Project = {
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  tags: string[];
+  image: string;
+  color: string;
+  art: string;
+  repoUrl?: string;
+  privateLabel?: string;
+};
+
+const projects: Project[] = [
   {
-    title: "Smart POS Portfolio Demo",
-    category: "Web Apps",
-    year: "2025",
-    description: "A React and Vite point-of-sale and billing system with dual bill-counter and customer displays, barcode scanning, billing, receipts, analytics, and demo QR payments.",
-    tags: ["React", "Vite", "JavaScript"],
-    image: "./manus-storage/project-web_1cebb402.png",
-    color: "yellow",
-    art: "pos",
+    title: "Smart POS & Billing System", category: "Web Apps", year: "2025",
+    description: "A browser-based retail POS demo with product management, billing, customer and staff tools, barcode scanning, receipt printing, analytics, and a separate customer display.",
+    tags: ["React", "Vite", "POS"], image: "./manus-storage/project-web_1cebb402.png", color: "yellow", art: "pos",
+    repoUrl: "https://github.com/saba1207B/smart-pos-portfolio-demo",
   },
   {
-    title: "FitTrack Fitness Tracking App",
-    category: "Android",
-    year: "2024",
-    description: "A CodeAlpha internship Android app for logging workouts, steps, calories burned, workout duration, dashboards, statistics, and offline storage.",
-    tags: ["Kotlin", "Android", "Offline"],
-    image: "./manus-storage/project-mobile_71b8612a.png",
-    color: "mint",
-    art: "mobile",
-    privateLabel: "CodeAlpha internship / private repository",
+    title: "FitTrack Fitness Tracking App", category: "Android", year: "2024",
+    description: "An offline-first Android app for recording workouts, steps, calories, and workout duration, with weekly progress dashboards and local storage.",
+    tags: ["Kotlin", "Android", "Offline-first"], image: "./manus-storage/project-mobile_71b8612a.png", color: "mint", art: "mobile",
+    repoUrl: "https://github.com/saba1207B/FitTrack-Fitness-Tracking-App",
   },
   {
-    title: "Object Detection Tracking",
-    category: "AI & Computer Vision",
-    year: "2024",
-    description: "A CodeAlpha internship computer-vision project using YOLO and OpenCV with bounding boxes, confidence scores, and tracking IDs.",
-    tags: ["Python", "YOLO", "OpenCV"],
-    image: "./manus-storage/project-3d_a3051503.png",
-    color: "lilac",
-    art: "vision",
-    privateLabel: "CodeAlpha internship / private repository",
+    title: "Object Detection & Tracking", category: "AI & Computer Vision", year: "2024",
+    description: "A phone-to-laptop computer-vision system that streams camera frames over a local network for YOLO-based detection and multi-object tracking.",
+    tags: ["Python", "YOLO", "OpenCV"], image: "./manus-storage/project-3d_a3051503.png", color: "lilac", art: "vision",
+    repoUrl: "https://github.com/saba1207B/ObjectDetectionTracking",
   },
   {
-    title: "Chatbot for FAQs",
-    category: "AI & Computer Vision",
-    year: "2024",
-    description: "A CodeAlpha internship rule-based and NLP conversational assistant for student and applicant admissions queries.",
-    tags: ["Python", "NLP", "Flask"],
-    image: "./manus-storage/project-ai_151909a3.png",
-    color: "coral",
-    art: "chatbot",
-    privateLabel: "CodeAlpha internship / private repository",
+    title: "FAQ Chatbot", category: "AI & Computer Vision", year: "2024",
+    description: "An Android FAQ chatbot that uses NLP, TF-IDF, and cosine similarity to match user questions with relevant answers.",
+    tags: ["Kotlin", "NLP", "TF-IDF"], image: "./manus-storage/project-ai_151909a3.png", color: "coral", art: "chatbot",
+    repoUrl: "https://github.com/saba1207B/FAQChatbot",
   },
   {
-    title: "Interactive Web Playground",
-    category: "UI/UX",
-    year: "2025",
-    description: "Creative developer canvas experiments with kinetic motion, interactive micro-interactions, responsive grids, and design tokens.",
-    tags: ["CSS", "Canvas", "UI Design"],
-    image: "./manus-storage/uiux-project_905d480f.png",
-    color: "sky",
-    art: "uiux",
-    privateLabel: "Personal exploration / live in this portfolio",
+    title: "Headphone 3D Scroll Showcase", category: "Web Apps", year: "GITHUB",
+    description: "An Apple-inspired headphone landing experience with scroll-driven 3D animation, Canvas rendering, glassmorphism, and responsive layouts.",
+    tags: ["JavaScript", "Canvas", "3D Motion"], image: "./manus-storage/project-headphones.jpg", color: "yellow", art: "headphones",
+    repoUrl: "https://github.com/saba1207B/-d_headphone_ad",
+  },
+  {
+    title: "Aurelion — The Sovereign", category: "Web Apps", year: "GITHUB",
+    description: "A luxury mechanical-watch showcase with a scroll-controlled exploded view, interactive specifications, and a browser/Electron experience.",
+    tags: ["JavaScript", "Canvas", "Electron"], image: "./manus-storage/project-watch-v1.jpg", color: "lilac", art: "watch-v1",
+    repoUrl: "https://github.com/saba1207B/ad_watch_explorer_v1.0",
+  },
+  {
+    title: "Aurelion — Rose Sovereign", category: "Web Apps", year: "GITHUB",
+    description: "The rose-gold edition of the watch explorer, featuring a cinematic scroll-driven mechanical assembly and reassembly sequence.",
+    tags: ["JavaScript", "Canvas", "Motion"], image: "./manus-storage/project-watch-v2.jpg", color: "coral", art: "watch-v2",
+    repoUrl: "https://github.com/saba1207B/ad_watch_explorer_v2.0",
+  },
+  {
+    title: "Antigravity Luxury Design", category: "UI/UX", year: "GITHUB",
+    description: "A luxury digital flagship and design system inspired by acoustic levitation, with interactive materials, live telemetry, and motion-led visuals.",
+    tags: ["HTML", "CSS", "JavaScript"], image: "./manus-storage/project-antigravity.jpg", color: "yellow", art: "antigravity",
+    repoUrl: "https://github.com/saba1207B/Antigravity-Luxury-Design",
+  },
+  {
+    title: "ConnectSphere", category: "Web Apps", year: "GITHUB",
+    description: "A browser-based video conferencing and collaboration platform with WebRTC calls, screen sharing, presentations, synchronized whiteboards, and moderation tools.",
+    tags: ["React", "TypeScript", "WebRTC"], image: "./manus-storage/project-connectsphere.jpg", color: "mint", art: "connectsphere",
+    repoUrl: "https://github.com/saba1207B/ConnectSphere",
+  },
+  {
+    title: "C Language Assignments", category: "Software", year: "GITHUB",
+    description: "A coursework collection of console-based C programs, including small utilities such as a calculator.",
+    tags: ["C", "Programming", "Coursework"], image: "./manus-storage/project-c-assignments.jpg", color: "sky", art: "c-assignments",
+    repoUrl: "https://github.com/saba1207B/C_Language_Assigments",
+  },
+  {
+    title: "E-commerce Website", category: "Web Apps", year: "GITHUB",
+    description: "An e-commerce website project. Open the repository to explore its implementation and project details.",
+    tags: ["Web", "E-commerce"], image: "./manus-storage/project-ecommerce.jpg", color: "coral", art: "ecommerce",
+    repoUrl: "https://github.com/saba1207B/ecommerce_website",
+  },
+  {
+    title: "Flashcard Quiz App", category: "Android", year: "GITHUB",
+    description: "An Android study app with question-and-answer flashcards, previous/next navigation, and tools to add, edit, and delete cards.",
+    tags: ["Kotlin", "Android", "Study"], image: "./manus-storage/project-flashcard.jpg", color: "lilac", art: "flashcards",
+    repoUrl: "https://github.com/saba1207B/FlashCardQuizApp",
+  },
+  {
+    title: "The Grand Monarch Hotel System", category: "Web Apps", year: "GITHUB",
+    description: "A hotel in-room dining and kitchen management experience with guest and staff workflows and synchronized order handling.",
+    tags: ["HTML", "CSS", "JavaScript"], image: "./manus-storage/project-hotel.jpg", color: "yellow", art: "hotel",
+    repoUrl: "https://github.com/saba1207B/Hotel_Grand_Monarch_ManagementSystem",
+  },
+  {
+    title: "Language Translation Tool", category: "Web Apps", year: "GITHUB",
+    description: "An internship-built translation app for translating text across 15+ global and Indian languages through a REST-backed interface.",
+    tags: ["Kotlin", "Translation", "REST API"], image: "./manus-storage/project-translator.jpg", color: "sky", art: "translator",
+    repoUrl: "https://github.com/saba1207B/LanguageTranslationTool",
+  },
+  {
+    title: "NeroSentinel", category: "AI & Computer Vision", year: "GITHUB",
+    description: "An offline-first water-intelligence and drought-resilience decision-support platform, with reservoir accounting, local data safeguards, and intervention planning.",
+    tags: ["Next.js", "FastAPI", "Water Resilience"], image: "./manus-storage/project-nerov2.jpg", color: "mint", art: "nerosentinel",
+    repoUrl: "https://github.com/saba1207B/NEROSENTINEL",
+  },
+  {
+    title: "Orbit Market", category: "Web Apps", year: "GITHUB",
+    description: "A responsive storefront with product discovery, product details, shopping-bag controls, demo authentication, and simulated local checkout.",
+    tags: ["React", "TypeScript", "E-commerce"], image: "./manus-storage/project-orbitmarket.jpg", color: "lilac", art: "orbitmarket",
+    repoUrl: "https://github.com/saba1207B/Orbitmarket_ecommerce",
+  },
+  {
+    title: "Random Quote Generator", category: "Android", year: "GITHUB",
+    description: "A native Android app for displaying inspirational quotes, generating another quote, copying and sharing it, and saving favorites.",
+    tags: ["Kotlin", "Android", "Jetpack"], image: "./manus-storage/project-quotes.jpg", color: "coral", art: "quotes",
+    repoUrl: "https://github.com/saba1207B/RandomQuoteGenerator",
+  },
+  {
+    title: "VOID TRACE RPL AI Assistant", category: "AI & Computer Vision", year: "GITHUB",
+    description: "An offline-first AI-assisted skill-assessment demo for mapping informal work experience to NSQF qualification packs, with a human assessor retaining final authority.",
+    tags: ["React", "AI-assisted", "Education"], image: "./manus-storage/project-rpl-ai.jpg", color: "yellow", art: "rpl-ai",
+    repoUrl: "https://github.com/saba1207B/RPL-AI",
+  },
+  {
+    title: "Polar Next.js Starter", category: "Web Apps", year: "GITHUB",
+    description: "A Next.js application scaffold created with create-next-app. See the repository for the current app content and implementation.",
+    tags: ["Next.js", "React", "TypeScript"], image: "./manus-storage/project-polar.jpg", color: "sky", art: "polar",
+    repoUrl: "https://github.com/saba1207B/sih26063-polar-repo",
+  },
+  {
+    title: "Social Grove", category: "Web Apps", year: "GITHUB",
+    description: "A social platform demo for short posts, conversations, communities, bookmarks, media sharing, and profile customization.",
+    tags: ["React", "TypeScript", "Social"], image: "./manus-storage/project-socialgrove.jpg", color: "mint", art: "socialgrove",
+    repoUrl: "https://github.com/saba1207B/SocialGrove",
+  },
+  {
+    title: "StudyFlow — High Fidelity", category: "Android", year: "GITHUB",
+    description: "A high-fidelity Kotlin and Jetpack Compose implementation of StudyFlow, a student study and productivity app concept.",
+    tags: ["Kotlin", "Jetpack Compose", "UI"], image: "./manus-storage/project-studyflow-hi.jpg", color: "lilac", art: "studyflow-hi",
+    repoUrl: "https://github.com/saba1207B/StudyFlow_HighFidelity",
+  },
+  {
+    title: "StudyFlow — Low Fidelity", category: "Android", year: "GITHUB",
+    description: "A low-fidelity Kotlin and Jetpack Compose wireframe implementation of the StudyFlow student productivity app concept.",
+    tags: ["Kotlin", "Jetpack Compose", "Wireframe"], image: "./manus-storage/project-studyflow-lo.jpg", color: "coral", art: "studyflow-lo",
+    repoUrl: "https://github.com/saba1207B/StudyFlow_LowFidelity",
+  },
+  {
+    title: "The Daily Brew", category: "Web Apps", year: "GITHUB",
+    description: "A motion-driven specialty coffee experience with an editorial café look, responsive layouts, interactive menu storytelling, and scroll transitions.",
+    tags: ["React", "TypeScript", "Motion"], image: "./manus-storage/project-dailybrew.jpg", color: "yellow", art: "dailybrew",
+    repoUrl: "https://github.com/saba1207B/the_daily_brew",
+  },
+  {
+    title: "VoxDefend", category: "AI & Computer Vision", year: "GITHUB",
+    description: "A voice deepfake detection and prevention demo with audio analysis, voice-identity checks, threat monitoring, and incident workflows.",
+    tags: ["Audio AI", "Security", "Web Audio"], image: "./manus-storage/project-voxdefend.jpg", color: "sky", art: "voxdefend",
+    repoUrl: "https://github.com/saba1207B/VoxDefend",
+  },
+  {
+    title: "WiFi Panel Launcher", category: "Android", year: "GITHUB",
+    description: "A lightweight Android utility that opens the native Wi-Fi settings panel, with launcher, widget, Quick Settings tile, and shortcut entry points.",
+    tags: ["Kotlin", "Android", "Utility"], image: "./manus-storage/project-wifi.jpg", color: "mint", art: "wifi",
+    repoUrl: "https://github.com/saba1207B/WIFI-panel",
   },
 ];
 
@@ -280,10 +389,10 @@ export default function Home() {
       </section>
 
       <section className="work-section section-pad" id="work">
-        <AntigravityCanvas mode="white-rainbow" showConstellationNodes={true} />
+        <AntigravityCanvas mode="white-rainbow" showConstellationNodes={true} particleDensity={1.8} />
         <div className="section-heading-row">
-          <div><p className="eyebrow dark-eyebrow">Selected experiments / 2023—25</p><h2>Work<span className="outline">.</span></h2></div>
-          <p className="section-note">A few things I&apos;ve designed, developed, and pushed until they felt right.</p>
+          <div><p className="eyebrow dark-eyebrow">Selected work / repository showcase</p><h2>Work<span className="outline">.</span></h2></div>
+          <p className="section-note">A growing collection of experiments, applications, and systems built across web, Android, design, and AI.</p>
         </div>
         <div className="filter-row" role="tablist" aria-label="Filter work">
           {filters.map((item) => (
@@ -301,14 +410,23 @@ export default function Home() {
         </div>
         <div className="work-runway">
           <div className="runway-line"><span className="runway-dot" /><span className="runway-dot" /><span className="runway-dot" /></div>
-          <div className="runway-label">01 — 05 / LATERAL STUDIO LOG</div>
+          <div className="runway-label">01 — {String(visibleProjects.length).padStart(2, "0")} / PROJECT INDEX</div>
           <div className="project-grid">
             {visibleProjects.map((project, index) => (
               <article
                 className={`project-card card-${project.color}`}
                 key={project.title}
-                data-cursor={project.title === "Smart POS Portfolio Demo" ? "View Code ↗" : "Explore ✦"}
+                data-cursor={project.repoUrl ? "GitHub ↗" : "Explore ✦"}
               >
+                {project.repoUrl && (
+                  <a
+                    className="project-card-hit-area"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${project.title} GitHub repository in a new tab`}
+                  />
+                )}
                 <div className={`project-visual art-${project.art || "default"}`}>
                   {project.image ? (
                     <img src={project.image} alt={`${project.title} project visual`} />
@@ -330,16 +448,8 @@ export default function Home() {
                   <div className="tag-row">
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                  {project.title === "Smart POS Portfolio Demo" ? (
-                    <a
-                      href="https://github.com/saba1207B/smart-pos-portfolio-demo"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="project-link"
-                      data-cursor="GitHub ↗"
-                    >
-                      View source code <ExternalLink size={16} />
-                    </a>
+                  {project.repoUrl ? (
+                    <span className="project-link">View repository <ExternalLink size={16} /></span>
                   ) : (
                     <span className="project-private">{project.privateLabel}</span>
                   )}

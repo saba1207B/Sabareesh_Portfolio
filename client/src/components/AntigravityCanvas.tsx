@@ -47,6 +47,7 @@ interface TrailSpark {
 interface AntigravityCanvasProps {
   mode: "blue-rainbow" | "white-rainbow" | "dark-gold";
   showConstellationNodes?: boolean;
+  particleDensity?: number;
   className?: string;
 }
 
@@ -89,6 +90,7 @@ function angleDiff(target: number, current: number): number {
 export default function AntigravityCanvas({
   mode,
   showConstellationNodes = false,
+  particleDensity = 1,
   className = "",
 }: AntigravityCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -152,11 +154,12 @@ export default function AntigravityCanvas({
       nodes.length = 0;
       if (!showConstellationNodes) return;
 
-      // Area-proportional density: ~1 node per 24,000px², capped for performance
+      // Area-proportional density, with a per-section multiplier and a safe cap.
       const rawCount = Math.floor((targetW * targetH) / (isMobile ? 32000 : 24000));
       const minCount = isMobile ? 10 : 18;
-      const maxCount = isMobile ? 36 : 75;
-      const count = Math.min(maxCount, Math.max(minCount, rawCount));
+      const maxCount = isMobile ? 54 : 120;
+      const requestedCount = Math.round(Math.max(minCount, rawCount) * particleDensity);
+      const count = Math.min(maxCount, Math.max(minCount, requestedCount));
 
       const shapes: ("dot" | "dash" | "star" | "star5" | "ring" | "diamond")[] = isMobile
         ? ["star", "dot", "star", "dash", "ring", "star5"]
